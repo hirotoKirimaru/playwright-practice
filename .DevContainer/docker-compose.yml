@@ -1,0 +1,9 @@
+# Devcontainerとしては意味がない？
+version: '3.8'
+services:
+  playwright:
+    build: 
+      context: ./
+    # command: echo '***************'
+    volumes:
+        - /workspaces/playwright-practice:/var/scenario
