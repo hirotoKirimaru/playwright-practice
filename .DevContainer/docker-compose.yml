@@ -4,6 +4,6 @@ services:
   playwright:
     build: 
       context: ./
-    # command: echo '***************'
+    # command: "python /var/scenario/sample.py"
     volumes:
-        - /workspaces/playwright-practice:/var/scenario
+        - ../:/var/scenario
