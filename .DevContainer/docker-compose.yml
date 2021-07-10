@@ -1,9 +1,14 @@
-# Devcontainerとしては意味がない？
 version: '3.8'
 services:
   playwright:
     build: 
       context: ./
-    # command: "python /var/scenario/sample.py"
     volumes:
         - ../:/var/scenario
+    container_name: playwright
+    # 起動時に対象のシナリオを実行する
+    entrypoint: >
+      sh -c "
+        cd /var/scenario &&
+        python sample.py
+      "
