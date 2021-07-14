@@ -16,11 +16,25 @@ async def main():
                 index=0
                 await page.screenshot(path=f'example-{index}.png')
 
-                await page.click('xpath=(//a[contains(@href,"repositories")])[2]')
+                await page.click("//a[contains(@href, 'repositories')]")
                 index+=1
                 await page.screenshot(path=f'example-{index}.png')
+
+                await page.fill("//input[@id='your-repos-filter']", 'practice')
+                index+=1
+                await page.screenshot(path=f'example-{index}.png')
+                
+
+                await page.click('xpath=(//a[contains(@href,"practice")])[2]')
+                index+=1
+                await page.screenshot(path=f'example-{index}.png')
+
+
+
+
                 await browser.close()
-            except: 
+            except Exception as e: 
+                print(e)
                 await page.screenshot(path=f'error.png')
 
 
