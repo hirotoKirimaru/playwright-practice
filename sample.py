@@ -8,7 +8,12 @@ async def main():
             try:
                 # Dockerでは画面描画する機能はないので、Docker上で開発するのは現実的ではない
                 browser = await browser_type.launch(headless=True)
-                page = await browser.new_page()
+                # ※ headressモードだとvideoの録画されるものはない
+                page = await browser.new_page(\
+                    screen={"width": 1440, "height": 1080},\
+                    record_video_dir="videos/",\
+                    record_video_size={"width": 1440, "height": 1080},\
+                )
                 # await page.goto('http://whatsmyuseragent.org/')
                 # await page.screenshot(path=f'example-{browser_type.name}.png')
 
