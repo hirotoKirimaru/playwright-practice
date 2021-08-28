@@ -14,3 +14,4 @@ python_version = "3.8"
 
 [scripts]
 codegen = "playwright codegen wikipedia.org -o test.py"
+sample_run = "python sample.py"
