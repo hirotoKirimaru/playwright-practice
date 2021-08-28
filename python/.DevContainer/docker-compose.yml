@@ -4,7 +4,7 @@ services:
     build: 
       context: ./
     volumes:
-        - ../:/var/scenario
+        - ../python:/var/scenario
     container_name: playwright
     # 起動時に対象のシナリオを実行する
     entrypoint: >
