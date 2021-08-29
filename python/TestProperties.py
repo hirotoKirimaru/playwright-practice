@@ -1,14 +1,11 @@
 import configparser
 
 class TestProperties:
-    def __init__(self):
-        # --------------------------------------------------
-        # configparserの宣言とiniファイルの読み込み
-        # --------------------------------------------------
+    def __init__(self, file_path='config.ini', section='DEFAULT'):
         config_ini = configparser.ConfigParser()
-        config_ini.read('config.ini', encoding='utf-8')
+        config_ini.read(file_path, encoding='utf-8')
 
-        self.config = config_ini['DEFAULT']
+        self.config = config_ini[section]
 
     @property
     def username(self):
