@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  playwright:
+    build: 
+      context: ./
+    volumes:
+        - ../python:/var/scenario
+    container_name: playwright
+    # 起動時に対象のシナリオを実行する
+    entrypoint: >
+      sh -c "
+        cd /var/scenario &&
+        python sample.py
+      "
