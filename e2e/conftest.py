@@ -7,8 +7,6 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session", autouse=True)
 def props(request):
-    from TestProperties import TestProperties
+    from ScenarioProperties import ScenarioProperties
     # return TestProperties(file_path='test_config.ini', section='TEST')
-    print(request.config.getoption("--env"))
-
-    return TestProperties()
+    return ScenarioProperties(section=request.config.getoption("--env"))
