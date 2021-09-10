@@ -6,6 +6,11 @@ class TestProperties:
         config_ini.read(file_path, encoding='utf-8')
 
         self.config = config_ini[section]
+        
+        print("******設定ファイルの内容*******")
+        print(self.config)
+        print(dict(self.config))
+
 
     @property
     def username(self):
