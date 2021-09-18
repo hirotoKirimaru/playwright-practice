@@ -3,9 +3,9 @@ import os
 
 def pytest_addoption(parser):
     """add commandline options"""
-    parser.addoption('--env', 
-                    action='store', 
-                    default='IT',
+    parser.addoption('--env', # オプション名
+                    action='store', # 
+                    default='IT', # デフォルト値
                     help='pc or sp')
     parser.addoption('--local', 
                     action='store_true', 
@@ -24,3 +24,8 @@ def props(request):
 
     # return TestProperties(file_path='test_config.ini', section='TEST')
     return TestProperties(section=request.config.getoption("--env"))
+
+
+@pytest.fixture()
+def env(request):
+    return request.config.getoption("--env")
