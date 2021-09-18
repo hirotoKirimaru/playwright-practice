@@ -1,15 +1,24 @@
-import configparser
+# import configparser
 
 class TestProperties:
     def __init__(self, file_path='config.ini', section='DEFAULT'):
+        import configparser
         config_ini = configparser.ConfigParser()
-        config_ini.read(file_path, encoding='utf-8')
+        config_ini.read('config.ini', encoding='utf-8')
+
+        print("******設定ファイルの内容*******")
+        print(config_ini.items('IT'))
+        print(dict(config_ini.items('IT')))
+        print(config_ini['ST'])
+        print(dict(config_ini['ST']))
+        print({section: dict(config_ini[section]) for section in config_ini.sections()})
+
+
+
 
         self.config = config_ini[section]
         
-        print("******設定ファイルの内容*******")
-        print(self.config)
-        print(dict(self.config))
+
 
 
     @property
